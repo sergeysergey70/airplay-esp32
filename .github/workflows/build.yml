@@ -3,7 +3,11 @@ name: Build
 # Reusable firmware build. Single source of truth for the target matrix,
 # called by both ci.yml (pull requests / main) and release.yml (tags).
 on:
-  workflow_call:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
